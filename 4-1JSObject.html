@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-1 JS Object</title>
+
+    <script>
+
+        function pageLoad() {
+           // alert("Fully Loaded");
+            
+            //1. Create a Javascript object called jsJavaBook using the first <book> source file.
+                let jsJavaBook =
+                    "<bookstore><book>" + 
+                        "<ISBN>0-596-00016-2</ISBN>" +
+                        "<Title>Java and XML</Title>" +
+                        "<Price>39.95</Price>" +
+                        "<Publisher>O'Reilly &amp; Associates</Publisher>" +
+                        "<Authors><Author>" +
+                            "<Fname>Brett</Fname>" + " " +
+                            "<Lname>McLaughlin</Lname>" +
+                        "</Author></Authors>" +
+                        "<Copyright>2000</Copyright>" +
+                        "<Comments>Update required</Comments>" +
+                    "</book>"+
+                    "</bookstore>";
+                
+                let xmlDocument = new DOMParser().parseFromString(jsJavaBook, "text/xml");
+                console.log(xmlDocument);
+                let bookstore = xmlDocument.querySelectorAll("book");
+
+                for (let book of bookstore) {
+                    let ISBN = book.querySelector("ISBN").textContent;
+                        console.log(ISBN);
+                    let title = book.querySelector("Title").textContent;
+                        console.log(title);
+                    let price = book.querySelector("Price").textContent;
+                        console.log(price);
+                    let publisher = book.querySelector("Publisher").textContent;
+                        console.log(publisher);
+                    let authors = book.querySelector("Authors").textContent;
+                        console.log(authors);
+                    let copyright = book.querySelector("Copyright").textContent;
+                        console.log(copyright);
+                    let comments = book.querySelector("Comments").textContent;
+                        console.log(comments);
+
+                    document.querySelector("#book1").innerHTML = 
+                    "ISBN: " + ISBN + 
+                    "<br>" +  "Title: " + title +  
+                    "<br>" + "Price: " + price + 
+                    "<br>" + "Publisher: " + publisher +
+                    "<br>" + "Authors" + authors +
+                    "<br>" + "Copyright" +copyright +
+                    "<br>" + "Comments" + comments;
+                }
+            //
+
+            //2. Create a javascript object called jsVBBook using the second <book> source file.
+                let jsVBBook = 
+                "<bookstore>" +
+                    "<book>" +
+                        "<ISBN>1-861003-32-3</ISBN>" + 
+                        "<Title>Professional Visual Basic 6 XML</Title>" +
+                        "<Price>49.99</Price>" +
+                        "<Publisher>Wrox Press</Publisher>" +
+                        "<Authors>" +
+                            "<Author>" +
+                            "<Fname>James</Fname>" + " " +
+                                "<Lname>Britt</Lname>" + " " + "and" + " " +
+                            "</Author>" +
+                            "<Author>" +
+                                "<Fname>Tuen</Fname>" + " " +
+                                "<Lname>Duynstee</Lname>" +
+                            "</Author>" +
+                        "</Authors>" +
+                        "<Copyright>2000</Copyright>" +
+                        "<Comments>Outdated text. Switch to C#</Comments>" +
+                    "</book>" +
+                "</bookstore>";
+                let xmlDocument2 = new DOMParser().parseFromString(jsVBBook, "text/xml");
+                console.log(xmlDocument2);
+                let bookstore2 = xmlDocument2.querySelectorAll("book");
+
+                for (let book of bookstore2) {
+                    let ISBN = book.querySelector("ISBN").textContent;
+                        console.log(ISBN);
+                    let title = book.querySelector("Title").textContent;
+                        console.log(title);
+                    let price = book.querySelector("Price").textContent;
+                        console.log(price);
+                    let publisher = book.querySelector("Publisher").textContent;
+                        console.log(publisher);
+                    let authors = book.querySelector("Authors").textContent;
+                        console.log(authors);
+                    let copyright = book.querySelector("Copyright").textContent;
+                        console.log(copyright);
+                    let comments = book.querySelector("Comments").textContent;
+                        console.log(comments);
+                    
+                   document.querySelector("#book2").innerHTML = 
+                    "ISBN: " + ISBN + 
+                    "<br>" +  "Title: " + title +  
+                    "<br>" + "Price: " + price + 
+                    "<br>" + "Publisher: " + publisher +
+                    "<br>" + "Authors" + authors +
+                    "<br>" + "Copyright" +copyright +
+                    "<br>" + "Comments" + comments;
+                }
+                
+            //3. Create a javascript object called jsTextbooks that will contain the book objects.
+                let jsTextbooks = jsJavaBook + "<br>" + jsVBBook;
+                document.getElementById("bothBooks").innerHTML = jsTextbooks;
+
+            }
+    </script>
+    <style>
+        #style {
+            width: 60%;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 20px;
+            background-color: lightgray;
+            padding: 30px;
+            box-shadow: 8px 8px rgb(144, 143, 143);
+        }
+    </style>
+</head>
+<body onload="pageLoad()">
+    <div id="style">
+        <h1>JavaScirpt Object - Using XML</h1>
+        <p>I watched <a href="https://www.google.com/search?q=javascript+xml+file+how+to+use&oq=javascript+xml+file+how+to+use&aqs=chrome..69i57j33i299l2j33i22i29i30l7.5495j0j7&sourceid=chrome&ie=UTF-8&bshm=rimc/1#fpstate=ive&vld=cid:5901fca5,vid:lUCQgqc4K2A,st:0">this video</a> 
+            on xml and found some stuff on W3Schools. I put what I found out together and shared it with a few class mates.</p>
+        <p>I also saw how the creator of that vidoe connected to an external XML file.</p>
+    </div>
+
+    <div id="style">
+        <h3>Java and XML - Book One</h3>
+        <p id="book1"></p>
+    </div>
+
+    <div id="style">
+        <h3>Professional Visual Basic 6 XML - Book Two</h3>
+        <p id="book2"></p>
+    </div>
+
+    <div id="style">
+        <h3>Both Books</h3>
+        <p id="bothBooks"></p>
+    </div>
+</body>
+</html>

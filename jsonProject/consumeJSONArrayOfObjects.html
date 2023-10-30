@@ -38,6 +38,8 @@
 <script src="createJSONArray.js"></script>
 
 <script>
+
+
 	function getStudents() {
 		let studentsJS = localStorage.getItem("students");
 		let studentsParse = JSON.parse(studentsJS);
@@ -48,15 +50,15 @@
 			document.querySelector("#id").innerHTML = studentsParse[i].student_id;	
 			document.querySelector("#gpa").innerHTML = studentsParse[i].student_gpa;
 			document.querySelector("#courses").innerHTML = studentsParse[i].student_courses;
+
 		}
 
-		studentsParse.forEach(students => {
-			for (let value in students) {
-				console.log(students[value]);
-			}
-		})
-
 		
+		studentsParse.forEach(students => {	//this forEach displays each student
+				for (let value in students) {
+					console.log(students[value]);
+				}
+			})	
 	}	
 
 </script>

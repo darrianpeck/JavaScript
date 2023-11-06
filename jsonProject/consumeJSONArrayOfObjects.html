@@ -43,22 +43,24 @@
 	function getStudents() {
 		let studentsJS = localStorage.getItem("students");
 		let studentsParse = JSON.parse(studentsJS);
-			//console.log(studentsParse);
 
 		for (i = 0; i < studentsParse.length; i++) {
-			//console.log(studentsParse[i]);
-			document.querySelector("#id").innerHTML = studentsParse[i].student_id;	
-			document.querySelector("#gpa").innerHTML = studentsParse[i].student_gpa;
-			document.querySelector("#courses").innerHTML = studentsParse[i].student_courses;
+			let temp = document.getElementsByTagName("template")[0];
+			let clone = temp.content.cloneNode(true);
+			clone.querySelector("#id").innerText = studentsParse[i].student_id;
+			clone.querySelector("#gpa").innerText = studentsParse[i].student_gpa;
 
+			let studentCourses = studentsParse[i].student_courses;
+				//console.log(studentCourses);
+			//make another loop for courses array
+				for (x = 0; x < studentCourses.length; x++){
+					clone.querySelector("#courses").innerHTML = 
+					"<li>" + studentsParse[i].student_courses[x] + "</li>" ;
+				};
+
+			//clone.querySelector("#courses").innerText = studentsParse[i].student_courses;	
+			document.body.appendChild(clone);		
 		}
-
-		
-		studentsParse.forEach(students => {	//this forEach displays each student
-				for (let value in students) {
-					console.log(students[value]);
-				}
-			})	
 	}	
 
 </script>
@@ -73,16 +75,16 @@
 
 	<button onclick="getStudents()">student array of objects</button>
 
-			<div class="studentCard">
-				<h3>Student ID: <span id="id"></span></h3>
-				<p>Student GPA: <span id="gpa"></span></p>
-				<p>Student Courses:
-					<ul>
-						<li id="courses"></li><!-- display the courses as list items -->
-					</ul>
-				</p>  
-			</div>   
-
+			<template>
+				<div class="studentCard">
+					<h3>Student ID: <span id="id"></span></h3>
+					<p>Student GPA: <span id="gpa"></span></p>
+					<p>Student Courses:
+						<ul id="courses">
+						</ul>
+					</p>  
+				</div>    
+			</template> 
 
 </body>
 </html>

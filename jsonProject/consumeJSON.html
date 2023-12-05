@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WDV321 Advanced Javascript - JSON</title>
+<script src="createJSON.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+  crossorigin="anonymous">
+</script>
+
+<script>
+	
+	function getStudentOne() {
+		let student1JS = localStorage.getItem("Student1");
+		let student1Parse = JSON.parse(student1JS);
+		//console.log(student1Parse);
+
+		let temp = document.getElementsByTagName("template")[0];
+		let clone = temp.content.cloneNode(true);
+		clone.querySelector("#id").innerText = student1Parse.student_id;
+		clone.querySelector("#gpa").innerText = student1Parse.student_gpa;
+		document.body.appendChild(clone);
+
+		let list = document.querySelector("#courses");
+		for (i=0; i<student1Parse.student_courses.length; i++) {
+			let li = document.createElement('li');
+			li.innerText = student1Parse.student_courses[i];
+			list.appendChild(li);
+		}
+	}
+
+	function getStudentTwo() {
+		let student2JS = localStorage.getItem("Student2");
+		let student2Parse = JSON.parse(student2JS);
+		//console.log(student2Parse);
+
+		let temp = document.getElementById("studentTemplate");
+		let clone = temp.content.cloneNode(true);
+		clone.querySelector("#id").innerText = student2Parse.student_id;
+		clone.querySelector("#gpa").innerText = student2Parse.student_gpa;
+		document.body.appendChild(clone);
+
+			let list = document.querySelector("#courses2");
+			for (i = 0; i < student2Parse.student_courses.length; i++) {
+				let li = document.createElement('li');
+				li.innerText = student2Parse.student_courses[i];
+				list.appendChild(li);
+			}
+	}
+
+	function getStudentThree() {
+		let student3JS = localStorage.getItem("Student3");
+		let student3Parse = JSON.parse(student3JS);
+		//console.log(student2Parse);
+
+		let temp = document.getElementById("studentTemplate3");
+		let clone = temp.content.cloneNode(true);
+		clone.querySelector("#id").innerText = student3Parse.student_id;
+		clone.querySelector("#gpa").innerText = student3Parse.student_gpa;
+		document.body.appendChild(clone);
+
+			let list = document.querySelector("#courses3");
+			for (i = 0; i < student3Parse.student_courses.length; i++) {
+				let li = document.createElement('li');
+				li.innerText = student3Parse.student_courses[i];
+				list.appendChild(li);
+			}
+	}
+</script>
+
+<!--
+    Instructions:
+    	1. Incorporate the createJSON.js file into this page as an external javascript file.
+        2. Access the JSON object in local storage and convert it into a Javascript object.
+        3. Use the information in the object to complete the student card.   
+-->
+
+<style>
+
+	body {
+		text-align: center;
+        background-color: rgb(255, 72, 0);
+        color: white;
+    }
+	
+	.studentCard	{
+		margin: 10px;
+        font-size: 15px;
+        color: black;
+        background-color: rgb(187, 217, 238);
+        padding: 10px;
+        width: 200px;
+		box-sizing:border-box;
+		background-color:lightblue;
+		padding-left:5px;
+		padding-top:3px;
+		border:thin solid blue;
+		box-shadow: 2px 2px 2px grey;		
+	}
+	
+	.studentCard h3	{
+		margin:0px;	
+	}
+
+	.styleBody {
+		margin: auto;
+	}
+
+	button {
+            margin: 10px;
+            font-size: 16px;
+            text-align: center; 
+            background-color: rgb(62, 136, 32);
+            color: white;
+            align-items: center;
+            padding: 10px;
+            width: 200px;
+            border-radius: 25px;
+	}
+</style>
+
+</head>
+
+<body>
+	
+		<h1>WDV321 Advanced Javascript</h1>
+		<h2>Unit-8 JSON Objects</h2>
+		<h3>Creating and consuming a JSON object</h3>
+
+		<div class="styleBody">
+			<div>
+				<button onclick="getStudentOne()">Show Student 1 Card</button>
+			</div>
+			<div>
+				<button onclick="getStudentTwo()">Show Student 2 Card</button>
+			</div>
+			<div>
+				<button onclick="getStudentThree()">Show Student 3 Card</button>
+			</div>
+
+		<template>
+			<div class="studentCard">
+				<h3>Student ID: <span id="id"></span></h3>
+				<p>Student GPA: <span id="gpa"></span></p>
+				<p>Student Courses:
+					<ul>
+						<li id="courses"></li><!-- display the courses as list items -->
+					</ul>
+				</p>  
+			</div>    
+		</template>
+
+		<template id="studentTemplate">
+			<div class="studentCard">
+				<h3>Student ID: <span id="id"></span></h3>
+				<p>Student GPA: <span id="gpa"></span></p>
+				<p>Student Courses:
+					<ul>
+						<li id="courses2"></li><!-- display the courses as list items -->
+					</ul>
+				</p>  
+			</div>    
+		</template>
+
+		<template id="studentTemplate3">
+			<div class="studentCard">
+				<h3>Student ID: <span id="id"></span></h3>
+				<p>Student GPA: <span id="gpa"></span></p>
+				<p>Student Courses:
+					<ul>
+						<li id="courses3"></li><!-- display the courses as list items -->
+					</ul>
+				</p>  
+			</div>    
+		</template>
+
+</body>
+</html>

@@ -1,0 +1,448 @@
+* {
+    box-sizing: border-box;
+    font-family: Tahoma, sans-serif;
+    font-weight: lighter;
+}
+
+@mixin red {
+    background-color: #c5323e;
+}
+
+@mixin orange {
+    background-color: #f43a0cb7;
+}
+
+@mixin yellow {
+    background-color: #ffaf01b8;
+}
+
+button {
+    @include red;
+    border: none;
+    padding: 15px;
+    text-decoration: none;
+    border-radius: 7px;
+    color: whitesmoke;
+
+    a {
+    color: whitesmoke;
+    font-size: 18px;
+    }
+}
+
+/*LOGO*/
+#logo {
+    grid-area: logo;
+    @include red;
+    text-align: center;
+
+    img {
+        width: 75px;
+        height: 75px;
+    }
+}
+
+
+/*NAV*/
+#nav {
+    grid-area: nav;
+    text-align: right;
+    padding-top: 10px;
+    @include red;
+
+    ul {
+        list-style-type: none;
+    }
+
+    li {
+        display: inline;
+        font-size: 20px;
+        padding-right: 50px;
+    }
+
+    a {
+        padding: 10px;
+        text-decoration: none;
+        color: whitesmoke;
+    }
+
+    a:hover { 
+        background-color: #ac242f;
+    }
+}
+
+/*SIGN ON*/
+#signOn {
+    grid-area: signOn;
+    @include  red;
+    text-align: center;
+    padding-top: 10px;
+
+
+    a {
+        padding: 10px;
+        text-decoration: none;
+        color: whitesmoke;
+    }
+
+    a:hover { 
+        background-color: #ac242f;
+    }
+}
+
+/*FOOTER*/
+#footer {
+    grid-area: footer;
+    font-size: 30px;
+    text-align: center;
+    @include red;
+    padding: 20px;
+}
+
+/* INDEX */
+#indexContainer {
+    display: grid;
+    grid-template-areas: 
+    "logo nav nav signOn" 
+    "intro intro intro intro" 
+    "about about about about"
+    "preview preview preview preview"
+    "footer footer footer footer";
+    
+
+    #intro {
+        grid-area: intro;
+        //@include orange;
+        padding: 20px;
+
+        img {
+            rotate: 180deg;
+            width: 80%;
+            height: 350px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: .5;
+        }
+    }
+
+    #about {
+        grid-area: about;
+        //@include orange;
+        padding: 20px;
+        margin-left: 140px;
+
+        h2 {
+            color: rgb(35, 35, 35);
+        }
+
+        p {
+            width: 50%;
+            padding-bottom: 10px;
+        }
+
+        button {
+            margin-right: 100px;
+        }
+    }
+
+    #preview {
+        grid-area: preview;
+        //@include orange;
+        padding: 20px;
+        margin-left: 140px;
+
+        .column {
+            float: left;
+            width: 40%;
+            padding: 10px;
+        }
+          
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        #recipeCard {
+            border: 2px solid #c5323e;
+            border-radius: 7px;
+            padding: 10px;
+            margin: 10px;
+        }
+    }
+}
+/*END INDEX*/
+
+
+/*RECIPES CONTAINER*/
+#recipePageContainer {
+    display: grid;
+    grid-template-areas: 
+    "logo nav nav signOn" 
+    "recipe recipe recipe recipe"
+    "footer footer footer footer";
+    //gap: 10px;
+
+    #recipe {
+        grid-area: recipe;
+        //@include orange;
+        padding: 20px;
+        margin-left: 140px;
+
+        .column {
+            float: left;
+            width: 40%;
+            padding: 10px;
+        }
+          
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    }
+
+    #recipeCard {
+        border: 2px solid #c5323e;
+        border-radius: 7px;
+        padding: 0px;
+        margin-right: 30px;
+    }
+}
+/*END RECIPE CONTAINER*/
+
+
+/* RECIPE FORM*/
+#addRecipeContainer {
+    display: grid;
+    grid-template-areas: 
+    "logo nav nav signOn" 
+    "recipeForm recipeForm recipeForm recipeForm"
+    "footer footer footer footer";
+
+    #recipeForm {
+        grid-area: recipeForm;
+        margin-top: 20px;
+    }
+
+    p {
+      padding: 10px;  
+    }
+
+    form {
+        width: 80%;
+        margin: auto;
+        border: 1px solid #ac242f;
+        border-radius: 4px;
+        padding: 25px;
+    }
+
+    input[type=text] {
+        width: 90%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ac242f; 
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      
+      input[type=submit] {
+        width: 50%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      input[type=reset] {
+        width: 50%;
+        background-color: rgb(208, 42, 42);
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=button] {
+        @include red;
+        border: none;
+        padding: 15px;
+        border-radius: 7px;
+        color: whitesmoke;
+    }
+
+    input[type=file] {
+        @include red;
+        border: none;
+        padding: 15px;
+        border-radius: 7px;
+        color: whitesmoke;
+    }
+
+    #instructions {
+        width: 90%;
+        height: 300px;
+        border: 1px solid #ac242f;
+        border-radius: 4px;
+    }
+}
+/*END RECIPE FORM*/
+
+
+
+/*ADMIN RECIPE PAGE*/
+    #adminRecipeContainer {
+        display: grid;
+        grid-template-areas: 
+        "logo nav nav signOn" 
+        "recipe recipe recipe recipe"
+        "footer footer footer footer";
+
+        #recipe {
+            grid-area: recipe;
+            //@include orange;
+            padding: 20px;
+            margin-left: 140px;
+    
+            .column {
+                float: left;
+                width: 40%;
+                padding: 10px;
+            }
+              
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        }
+    
+        #recipeCard {
+            border: 1px solid black;
+            padding: 0px;
+            margin-right: 30px;
+
+            button {
+                margin: 10px;
+            }
+        }
+    }
+/*END ADMIN RECIPE PAGE*/
+
+
+
+/*CONTACT CONTAINER*/ 
+#contactContainer {
+    display: grid;
+    grid-template-areas: 
+    "logo nav nav signOn" 
+    "contact contact contact message"
+    "footer footer footer footer";
+    //gap: 10px;
+
+    #contact {
+        grid-area: contact;
+        //@include orange;
+        padding: 20px;
+
+        form {
+            width: 80%;
+            margin: auto;
+            border: 1px solid #ac242f;
+            border-radius: 4px;
+            padding: 25px;
+        }
+
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ac242f;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+          
+        input[type=submit] {
+            width: 50%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    
+        input[type=reset] {
+            width: 50%;
+            background-color: rgb(208, 42, 42);
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+          
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+    }
+
+    #message {
+        grid-area: message;
+        @include yellow;
+        padding: 20px;
+    }
+}
+/*END CONTACT*/ 
+
+
+/*LOGIN*/
+#formContainer {
+    display: grid;
+    grid-template-areas: 
+    "logo nav nav signOn" 
+    "title title title title"
+    "form form form form"
+    "footer footer footer footer";
+
+    #title {
+        grid-area: title;
+        @include red;
+    }
+
+    #form {
+        grid-area: form;
+        @include yellow;
+    }
+}
+/*END LOGIN*/
+
+
+/*DESIGN PROCESS CONTAINER*/
+#designContainer {
+    display: grid;
+    grid-template-areas: 
+    "logo nav nav signOn" 
+    "design design design design"
+    "footer footer footer footer";
+    //gap: 10px;
+
+    #design {
+        grid-area: design;
+        @include orange;
+        padding: 20px;
+    }
+} 
+
+/*END DESIGN*/

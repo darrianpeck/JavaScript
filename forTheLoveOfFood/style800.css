@@ -1,0 +1,57 @@
+@media screen and (max-width: 800px) {
+  body {
+    background-color: plum;
+  }
+  #logo {
+    float: left;
+  }
+  #nav ul li {
+    display: block;
+    padding-bottom: 10px;
+  }
+  #indexContainer {
+    grid-template-areas: "logo" "signOn" "nav" "intro" "about" "preview" "footer";
+  }
+  #indexContainer #intro img {
+    display: none;
+  }
+  #indexContainer #about {
+    margin-left: 10px;
+  }
+  #indexContainer #about p {
+    width: 90%;
+  }
+  #indexContainer #about button {
+    margin: 15px;
+  }
+  #indexContainer #preview {
+    margin-left: 10px;
+  }
+  #indexContainer #preview .column {
+    width: 100%;
+  }
+  #recipePageContainer {
+    grid-template-areas: "logo" "signOn" "nav" "recipe" "footer";
+  }
+  #recipePageContainer #recipe {
+    margin-left: 10px;
+  }
+  #recipePageContainer #recipe .column {
+    width: 100%;
+  }
+  #recipePageContainer #recipeCard {
+    margin-bottom: 30px;
+  }
+  #addRecipeContainer {
+    grid-template-areas: "logo " "nav" "signOn" "recipeForm" "footer";
+  }
+  #contactContainer {
+    grid-template-areas: "logo" "signOn" "nav" "message" "contact" "footer";
+  }
+  #contactContainer #contact form {
+    width: 90%;
+  }
+  #designContainer {
+    grid-template-areas: "logo" "signOn" "nav" "design";
+  }
+}/*# sourceMappingURL=style800.css.map */

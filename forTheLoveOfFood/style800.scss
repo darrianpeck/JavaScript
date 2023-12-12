@@ -1,0 +1,108 @@
+@media screen and (max-width: 800px){
+    body {
+        background-color: plum;
+    }
+
+    #logo {
+        float: left;
+    }
+
+    #nav {
+        ul li{
+            display: block;
+            padding-bottom: 10px;
+        }
+    }
+
+    #indexContainer {
+        grid-template-areas:
+        "logo"
+        "signOn"
+        "nav"
+        "intro"
+        "about"
+        "preview"
+        "footer";
+
+        #intro {
+            img {
+                display: none;
+            }
+        }
+
+        #about {
+            margin-left: 10px;
+            p {
+                width: 90%;
+            }
+
+            button {
+                margin: 15px;
+            }
+        }
+        
+        #preview {
+            margin-left: 10px;
+            
+            .column {
+                width: 100%;
+            }
+        }
+    }
+
+    #recipePageContainer {
+        grid-template-areas:
+        "logo"
+        "signOn"
+        "nav"
+        "recipe"
+        "footer";
+
+        #recipe{
+            margin-left: 10px;
+
+            .column {
+                width: 100%;
+            }
+        }
+
+        #recipeCard {
+            margin-bottom: 30px;
+        }
+
+    }
+
+    #addRecipeContainer {
+        grid-template-areas: 
+        "logo "
+        "nav"
+        "signOn" 
+        "recipeForm" 
+        "footer" ;
+    }
+
+    #contactContainer {
+        grid-template-areas: 
+        "logo"
+        "signOn"
+        "nav"
+        "message"
+        "contact"
+        "footer";
+
+        #contact {
+            form{
+                width: 90%;
+            }
+        }
+
+    }
+
+   #designContainer {
+    grid-template-areas: 
+    "logo"
+    "signOn"
+    "nav"
+    "design";
+   }
+}

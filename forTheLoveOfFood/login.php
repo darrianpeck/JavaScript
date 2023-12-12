@@ -1,6 +1,6 @@
 <?php
 /*  =================================================================================
-    CHANGE NAMES SO IT DOES NOT LOOK LIKE I COPIED AND PASTED THE SAME CODE BITCH!!!!
+    CHANGE NAMES OF VARIABLES
     =================================================================================
     command shift L selected ALL highlighted words
 */
